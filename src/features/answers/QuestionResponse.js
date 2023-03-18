@@ -1,33 +1,21 @@
-import { useEffect, useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { questionAnswered, selectAnswerByQuestionId } from "./answersSlice";
+import { useDispatch } from "react-redux";
+import { questionAnswered } from "./answersSlice";
 import QuestionResponseOption from "./QuestionResponseOption";
+import useStoredSelection from "./useStoredSelection";
 
 function QuestionResponse({ id, text, options, next }) {
-  const [selectedOption, setSelectedOption] = useState(null);
-  const [nextQuestionId, setNextQuestionId] = useState(null);
   const dispatch = useDispatch();
-  const {
-    optionId: previouslySelectedAnswerId,
-    nextQuestionId: previouslySelectedNextQuestionId,
-  } = useSelector((state) => selectAnswerByQuestionId(state, id));
-
-  useEffect(() => {
-    setSelectedOption(previouslySelectedAnswerId);
-    setNextQuestionId(previouslySelectedNextQuestionId);
-  }, [previouslySelectedAnswerId, previouslySelectedNextQuestionId]);
+  const [selectedOption, setSelectedOption] = useStoredSelection(id);
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    dispatch(questionAnswered(id, selectedOption, nextQuestionId));
-    setSelectedOption(null);
-    setNextQuestionId(null);
-    next(nextQuestionId);
+    dispatch(questionAnswered(id, selectedOption));
+    setSelectedOption({});
+    next(selectedOption.nextQuestionId);
   };
 
   const handleAnswerChange = (optionId, nextQuestionId) => {
-    setSelectedOption(optionId);
-    setNextQuestionId(nextQuestionId);
+    setSelectedOption({ optionId, nextQuestionId });
   };
 
   return (
@@ -37,11 +25,11 @@ function QuestionResponse({ id, text, options, next }) {
         <QuestionResponseOption
           key={option.id}
           handleChange={handleAnswerChange}
-          selectedOption={selectedOption}
+          selectedId={selectedOption.optionId}
           {...option}
         />
       ))}
-      <button type="submit" disabled={!selectedOption}>
+      <button type="submit" disabled={!selectedOption.optionId}>
         Continue
       </button>
     </form>

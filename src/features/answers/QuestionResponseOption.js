@@ -1,5 +1,5 @@
 function QuestionResponseOption({
-  selectedOption,
+  selectedId,
   id,
   text,
   nextQuestionId,
@@ -12,7 +12,7 @@ function QuestionResponseOption({
         name="question"
         id={`option${id}`}
         value={id}
-        checked={selectedOption === id}
+        checked={selectedId === id}
         onChange={() => handleChange(id, nextQuestionId)}
       />
       <label htmlFor={`option${id}`}>{text}</label>

@@ -25,7 +25,8 @@ function answersReducer(state = initialState, action) {
 }
 export default answersReducer;
 
-export const questionAnswered = (questionId, optionId, nextQuestionId) => {
+export const questionAnswered = (questionId, option) => {
+  const { optionId, nextQuestionId } = option;
   return {
     type: "answers/questionAnswered",
     payload: {
