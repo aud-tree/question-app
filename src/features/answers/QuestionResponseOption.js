@@ -1,3 +1,5 @@
+import styles from "./QuestionResponseOption.module.css";
+
 function QuestionResponseOption({
   selectedId,
   id,
@@ -6,7 +8,7 @@ function QuestionResponseOption({
   handleChange,
 }) {
   return (
-    <div key={id} className="question-option">
+    <div key={id} className={styles.questionOption}>
       <input
         type="radio"
         name="question"

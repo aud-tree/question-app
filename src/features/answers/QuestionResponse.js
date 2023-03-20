@@ -2,6 +2,7 @@ import { useDispatch } from "react-redux";
 import { questionAnswered } from "./answersSlice";
 import QuestionResponseOption from "./QuestionResponseOption";
 import useStoredSelection from "./useStoredSelection";
+import styles from "./QuestionResponse.module.css";
 
 function QuestionResponse({ id, text, options, next }) {
   const dispatch = useDispatch();
@@ -19,8 +20,8 @@ function QuestionResponse({ id, text, options, next }) {
   };
 
   return (
-    <form className="question-form" onSubmit={handleSubmit}>
-      {text}
+    <form className={styles.questionForm} onSubmit={handleSubmit}>
+      <div className={styles.questionText}>{text}</div>
       {options.map((option) => (
         <QuestionResponseOption
           key={option.id}

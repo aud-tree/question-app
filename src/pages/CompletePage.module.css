@@ -1,0 +1,22 @@
+.container {
+  min-height: 75vh;
+}
+
+.answerList {
+  text-align: start;
+}
+
+.answerItem {
+  margin-bottom: 0.75em;
+}
+
+.questionText {
+  background-color: var(--theme-color);
+  margin-bottom: 5px;
+  padding: 5px;
+}
+
+.answerText {
+  background-color: #555;
+  padding: 5px;
+}

@@ -12,6 +12,13 @@ function StartPage() {
     dispatch(answersReset());
   });
 
-  return <Link to={`questions/${id}`}>Start</Link>;
+  return (
+    <>
+      <h2>Answer Some Questions!</h2>
+      <Link className="button" to={`questions/${id}`}>
+        Start
+      </Link>
+    </>
+  );
 }
 export default StartPage;

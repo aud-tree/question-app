@@ -1,0 +1,13 @@
+.questionForm {
+  text-align: start;
+}
+
+.questionText {
+  background-color: var(--theme-color);
+  padding: 5px;
+  margin-bottom: 0.25em;
+}
+
+button {
+  margin-top: 0.5em;
+}

@@ -1,12 +1,11 @@
-import "./App.css";
+import styles from "./App.module.css";
 import { Outlet } from "react-router";
 
 function App() {
   return (
-    <>
-      <h1>Questions!</h1>
+    <div className={styles.container}>
       <Outlet />
-    </>
+    </div>
   );
 }
 

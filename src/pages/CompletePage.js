@@ -1,25 +1,29 @@
 import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
 import { selectFinalAnswers } from "../features/answers/answersSlice";
+import styles from "./CompletePage.module.css";
 
 function CompletePage() {
   const answers = useSelector(selectFinalAnswers);
 
   return (
-    <div>
-      <h3>Done!</h3>
+    <div className={styles.container}>
+      <h2>Done!</h2>
       <h4>Your Answers:</h4>
-      <ul>
+      <ol className={styles.answerList}>
         {answers.map((answer) => {
           const { questionId, questionText, answerText } = answer;
           return (
-            <li key={questionId}>
-              {questionText}: {answerText}
+            <li className={styles.answerItem} key={questionId}>
+              <div className={styles.questionText}>{questionText}</div>
+              <div className={styles.answerText}>{answerText}</div>
             </li>
           );
         })}
-      </ul>
-      <Link to="/">Reset</Link>
+      </ol>
+      <Link className="button" to="/">
+        Reset
+      </Link>
     </div>
   );
 }
