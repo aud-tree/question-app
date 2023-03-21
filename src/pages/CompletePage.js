@@ -9,7 +9,7 @@ function CompletePage() {
   return (
     <div className={styles.container}>
       <h2>Done!</h2>
-      <h4>Your Answers:</h4>
+      <h4>Your Answers</h4>
       <ol className={styles.answerList}>
         {answers.map((answer) => {
           const { questionId, questionText, answerText } = answer;

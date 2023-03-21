@@ -6,7 +6,7 @@ import CompletePage from "./pages/CompletePage";
 import NotFoundPage from "./pages/NotFoundPage";
 import { Navigate } from "react-router";
 
-const router = createBrowserRouter([
+export const routes = [
   {
     path: "/",
     element: <App />,
@@ -21,6 +21,8 @@ const router = createBrowserRouter([
     element: <NotFoundPage />,
   },
   { path: "*", element: <Navigate to="/not-found" /> },
-]);
+];
+
+const router = createBrowserRouter(routes);
 
 export default router;

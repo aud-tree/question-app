@@ -1,6 +1,7 @@
 :root {
-  --form-item-color: #b299d7;
   --theme-color: mediumpurple;
+  --theme-color-light: #b299d7;
+  --list-item-background-color: #555;
 }
 
 body {
@@ -44,6 +45,6 @@ button:disabled {
 }
 
 a.button:hover, button:hover:enabled {
-  border-color: var(--form-item-color);
-  background-color: var(--form-item-color);
+  border-color: var(--theme-color-light);
+  background-color: var(--theme-color-light);
 }

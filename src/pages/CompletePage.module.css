@@ -17,6 +17,6 @@
 }
 
 .answerText {
-  background-color: #555;
+  background-color: var(--list-item-background-color);
   padding: 5px;
 }
